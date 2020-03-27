@@ -6,7 +6,6 @@ function Search({ doSearch }) {
         <input
             placeholder="Search by name..."
             onChange={function(e) {
-                // console.log(e.target.value);
                 doSearch(e.target.value);
             }}
         />

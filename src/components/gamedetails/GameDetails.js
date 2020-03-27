@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { BASE_URL } from "../../constants/api";
+import {
+    Link
+  } from "react-router-dom";
 
 function GameDetails() {
     const [detail, setDetail] = useState({});
 
     const { id } = useParams();
 
-    const url = BASE_URL + id;
+    const url = BASE_URL+ "/" + id;
 
-    useEffect(function() {
+    useEffect(() => {
         console.log("ddd");
         fetch(url)
             .then(response => response.json())
@@ -20,13 +23,13 @@ function GameDetails() {
             .catch(error => console.log(error));
     });
 
-    
     return (
         <div>
             <h1>Title: {detail.name}</h1>
-            <img src={detail.image} alt={detail.image}/>
-            <p>Description: {detail.description}</p>
-            <p>Website link: {detail.clip}</p>
+            <img src={detail.background_image_additional} alt={detail.background_image_additional}/>
+            <p>Description: {detail.description_raw}</p>
+            <a href={detail.website}>Link to website</a>
+            <br></br><Link to="/">Go back to home</Link>
         </div>
     );
 }

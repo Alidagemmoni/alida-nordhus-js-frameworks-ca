@@ -4,27 +4,17 @@ import GameItems from "../gamedetails/GameItems";
 import SearchBox from "../gamedetails/SearchBox";
 
 function Home() {
-    // state = local variables that belong only to this component
-    // set up state variables
-    // make the api call
-    // when api call comes back store the return value in state variables
-    // loop over the state variables to display
 
-    const [results, setResults] = useState([]); // default value is empty array
+    const [results, setResults] = useState([]);
     const [filteredResults, setFilteredResults] = useState([]);
 
-    // useEffect runs when component gets mounted
-    // also when the component gets updated
-
-    // when  the component gets loaded into the browser
-    // make the api
     useEffect(function() {
-        fetch(BASE_URL) // make the call to the api
+        fetch(BASE_URL) 
             .then(function(response) {
-                return response.json(); // what comes back which is a promise
+                return response.json();
             })
             .then(function(json) {
-                console.dir(json.results); // this is the actual return value from the value
+                console.dir(json.results); 
                 setResults(json.results);
                 setFilteredResults(json.results);
             })
@@ -36,7 +26,6 @@ function Home() {
     function handleSearch(inputValue) {
         const lowerCaseInput = inputValue.toLowerCase();
 
-        // filter function creates a new array from an existing array
         const filteredArray = results.filter(function(result) {
             const lowercaseName = result.name.toLowerCase();
 
