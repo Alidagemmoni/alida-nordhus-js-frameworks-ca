@@ -5,9 +5,6 @@ function GameItems(props) {
     return (
         <div>
             <p>
-                <b>Title: {props.title}</b>
-            </p>
-            <p>
                 <b>Rating: {props.rating}</b> 
             </p>
             <p>
@@ -18,9 +15,8 @@ function GameItems(props) {
 }
 
 GameItems.propTypes = {
-    title: PropTypes.string.isRequired,
-    rating: PropTypes.string.isRequired,
-    releaseDate: PropTypes.string.isRequired
+    rating: PropTypes.number.isRequired,
+    released: PropTypes.string.isRequired
 };
 
 export default GameItems;

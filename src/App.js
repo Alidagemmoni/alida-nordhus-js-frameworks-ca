@@ -11,8 +11,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
     return (
     <Router>
-    <Navbar bg="dark" variant="dark" expand="lg">
-    <Navbar.Brand href="/">Games</Navbar.Brand>
+    <Navbar bg="danger" variant="dark" expand="lg">
+    <Navbar.Brand href="/">Video game details</Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link href="/">Home</Nav.Link>
       <Nav.Link href="/contact/">Contact</Nav.Link>
