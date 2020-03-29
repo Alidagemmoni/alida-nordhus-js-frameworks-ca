@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
@@ -14,17 +14,21 @@ const schema = yup.object().shape({
 	message: yup
 		.string()
 		.required()
-		.min(10, "Plese enter a message with more than q0 characters")
+		.min(10, "Plese enter a message with more than 10 characters")
 });
 
 function Contact() {
+    const [ validated, setValidated ] = useState(false);
 	const { register, handleSubmit, errors } = useForm({
-		validationSchema: schema
-	});
+        validationSchema: schema
+    });
 
-	function onSubmit(data) {
-		console.log("data", data);
-	}
+	function onSubmit(data, event) {
+        console.log("data", data);
+        event.preventDefault();
+        event.stopPropagation();
+        setValidated(true);
+    }
 
 	return (
         
@@ -43,13 +47,13 @@ function Contact() {
             </Form.Group>
 
             <Form.Group>
-                <Form.Label>Email</Form.Label>
+                <Form.Label validated={validated}>Email</Form.Label>
                 <Form.Control name="email" placeholder="Enter your email" ref={register} />
                 {errors.email && <p>{errors.email.message}</p>}
             </Form.Group>
 
             <Form.Group>
-                <Form.Label>Message</Form.Label>
+                <Form.Label validated={validated}>Message</Form.Label>
                 <Form.Control type="message" name="message" as="textarea" placeholder="Enter your message here" ref={register} />
                 {errors.message && <p>{errors.message}</p>}
             </Form.Group>

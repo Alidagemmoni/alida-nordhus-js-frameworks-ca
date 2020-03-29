@@ -12,7 +12,7 @@ function App() {
     return (
     <Router>
     <Navbar bg="danger" variant="dark" expand="lg">
-    <Navbar.Brand href="/">Video game details</Navbar.Brand>
+    <Navbar.Brand href="/">Video games</Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link href="/">Home</Nav.Link>
       <Nav.Link href="/contact/">Contact</Nav.Link>
